@@ -5,6 +5,15 @@
 
 功能接口在com.cc.kingdeestart.core.IRequestClient，包含部分功能接口，也可以根据实际要求添加。
 
+项目主依赖
+
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.3.7.RELEASE</version>
+        <relativePath/>
+    </parent>
+
 
 使用方式：
 
