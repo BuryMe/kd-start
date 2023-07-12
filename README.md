@@ -5,7 +5,16 @@
 
 功能接口在com.cc.kingdeestart.core.IRequestClient，包含部分功能接口，也可以根据实际要求添加。
 
-推荐使用方式，clone项目，编译，将jar丢到公司私服活着本地仓库，添加maven依赖，在实际调用时，注入IRequestClient即可。
+
+使用方式：
+
+1.clone项目，编译，将jar丢到公司私服活着本地仓库，添加maven依赖
+
+2.在业务主项目的配置文件中，添加prefix=kingdee的金蝶服务配置信息，具体看com.cc.kingdeestart.core.KingDeeProperty
+
+3.注入IRequestClient。
+
+
 
 
 
