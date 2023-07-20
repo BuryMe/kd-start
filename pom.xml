@@ -65,34 +65,7 @@
 
     </dependencies>
 
-    <distributionManagement>
-        <repository>
-            <id>daddylab-releases</id>
-            <name>daddylab releases</name>
-            <url>http://nexus.dlab.cn/repository/daddylab-releases/</url>
-        </repository>
-        <snapshotRepository>
-            <id>daddylab-snapshots</id>
-            <name>daddylab snapshots</name>
-            <url>http://nexus.dlab.cn/repository/daddylab-snapshots/</url>
-        </snapshotRepository>
-    </distributionManagement>
 
-    <repositories>
-        <repository>
-            <id>daddylab-pubic</id>
-            <name>daddylab public</name>
-            <url>http://nexus.dlab.cn/repository/daddylab-public/</url>
-            <releases>
-                <enabled>true</enabled>
-            </releases>
-            <snapshots>
-                <enabled>true</enabled>
-            </snapshots>
-            <layout>default</layout>
-        </repository>
-
-    </repositories>
 
     <build>
         <plugins>
