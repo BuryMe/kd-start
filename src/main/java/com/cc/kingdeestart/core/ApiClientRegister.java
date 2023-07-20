@@ -18,6 +18,7 @@ import org.springframework.core.io.ResourceLoader;
 import org.springframework.core.type.AnnotationMetadata;
 import org.springframework.core.type.filter.AnnotationTypeFilter;
 import org.springframework.util.Assert;
+import org.springframework.util.CollectionUtils;
 
 import java.lang.reflect.Method;
 import java.util.Map;
@@ -62,6 +63,8 @@ public class ApiClientRegister implements ImportBeanDefinitionRegistrar, Environ
 //        String basePackage = getBasePackage(importingClassMetadata);
         String basePackage = "com.cc.kingdeestart.core";
         Set<BeanDefinition> beanDefinitionSet = scanner.findCandidateComponents(basePackage);
+        Assert.isTrue(!CollectionUtils.isEmpty(beanDefinitionSet), "KingDeeApiClientSet is empty");
+
         beanDefinitionSet.forEach(candidateComponent -> {
             if (candidateComponent instanceof AnnotatedBeanDefinition) {
                 AnnotatedBeanDefinition beanDefinition = (AnnotatedBeanDefinition) candidateComponent;
