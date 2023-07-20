@@ -46,14 +46,17 @@ public class RequestResolver {
             return sessionId;
         }
 
-        String loginResult = "";
+        String loginResult;
         try {
             String serverUrl = this.kingDeeProperty.getServerUrl();
             String loginReqJson = this.kingDeeProperty.getLoginReqJson();
             loginResult = http(serverUrl, loginReqJson, null);
             JsonParser jsonParser = JsonParserFactory.getJsonParser();
             Map<String, Object> stringObjectMap = jsonParser.parseMap(loginResult);
-            sessionId = (String) stringObjectMap.get("KDSVCSessionId");
+            Object sessionIdObj = stringObjectMap.get("KDSVCSessionId");
+            Assert.notNull(sessionIdObj, "KDSVCSessionId is null");
+            sessionId = (String) sessionIdObj;
+            CACHE.put(SESSION_KEY, sessionId);
         } catch (Exception e) {
             log.error("exception in getting sessionId. error:" + e.getMessage());
             throw new RuntimeException("exception in getting kingDee sessionId");
@@ -103,8 +106,8 @@ public class RequestResolver {
         try (Response response = client.newCall(request).execute()) {
             return Objects.requireNonNull(response.body()).string();
         } catch (IOException e) {
-            log.error("exception in http request");
-            throw new RuntimeException(e);
+            log.error("exception in http request", e);
+            throw new RuntimeException(e.getMessage());
         }
     }
 }

@@ -114,11 +114,6 @@ public class ApiClientRegister implements ImportBeanDefinitionRegistrar, Environ
         };
     }
 
-//    protected String getBasePackage(AnnotationMetadata importingClassMetadata) {
-//        Map<String, Object> attributes = importingClassMetadata
-//                .getAnnotationAttributes(EnableKingDeeApiClient.class.getCanonicalName());
-//        return (String) attributes.get("basePackage");
-//    }
 
     private String getClientName(AnnotationMetadata metadata) {
         Map<String, Object> attributes = metadata
